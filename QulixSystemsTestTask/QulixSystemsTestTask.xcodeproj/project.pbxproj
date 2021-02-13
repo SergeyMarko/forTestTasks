@@ -16,6 +16,7 @@
 		63AC4BA925D7E30200FBCA3D /* QulixSystemsTestTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4BA825D7E30200FBCA3D /* QulixSystemsTestTaskTests.swift */; };
 		63AC4BB425D7E30200FBCA3D /* QulixSystemsTestTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4BB325D7E30200FBCA3D /* QulixSystemsTestTaskUITests.swift */; };
 		63AC4BE225D858F100FBCA3D /* ResultInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4BE125D858F100FBCA3D /* ResultInfo.swift */; };
+		63AC4BEA25D878B700FBCA3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4BE925D878B700FBCA3D /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		63AC4BB325D7E30200FBCA3D /* QulixSystemsTestTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QulixSystemsTestTaskUITests.swift; sourceTree = "<group>"; };
 		63AC4BB525D7E30200FBCA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63AC4BE125D858F100FBCA3D /* ResultInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInfo.swift; sourceTree = "<group>"; };
+		63AC4BE925D878B700FBCA3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				63AC4BE125D858F100FBCA3D /* ResultInfo.swift */,
+				63AC4BE925D878B700FBCA3D /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			files = (
 				63AC4B9625D7E30000FBCA3D /* MainViewController.swift in Sources */,
 				63AC4B9225D7E30000FBCA3D /* AppDelegate.swift in Sources */,
+				63AC4BEA25D878B700FBCA3D /* NetworkManager.swift in Sources */,
 				63AC4BE225D858F100FBCA3D /* ResultInfo.swift in Sources */,
 				63AC4B9425D7E30000FBCA3D /* SceneDelegate.swift in Sources */,
 			);
