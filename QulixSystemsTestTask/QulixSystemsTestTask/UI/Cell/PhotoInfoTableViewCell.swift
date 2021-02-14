@@ -20,12 +20,48 @@ class PhotoInfoTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    let networkManager = NetworkManager()
+    var dataTask: URLSessionDataTask?
     
     // MARK: - Public
     
     func update(with photo: Photo) {
+        
+        func loadPhoto() {
+
+            let imageURL = "https://live.staticflickr.com/\(photo.server ?? "")/\(photo.id ?? "")_\(photo.secret ?? "")_w.jpg"
+
+            guard
+                let url = URL(string: imageURL)
+            else { return }
+
+            let session = URLSession(configuration: .default)
+            let newDataTask = session.dataTask(with: url) { [weak self] (data, _, error) in
+                guard
+                    let self = self,
+                    let data = data,
+                    error == nil
+                else { return }
+
+                var image: UIImage?
+                image = UIImage(data: data)
+
+                DispatchQueue.main.async {
+                    self.photoImageView.image = image
+                }
+            }
+            self.dataTask?.cancel()
+            self.dataTask? = newDataTask
+            newDataTask.resume()
+        }
+        loadPhoto()
         titleLabel.text = photo.title
-        photoImageView.image = networkManager.loadPhoto(with: photo.imageURL ?? "")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        isHidden = false
+        isSelected = false
+        isHighlighted = false
     }
 }

@@ -50,6 +50,8 @@ extension MainViewController: UITableViewDataSource {
             fatalError("Can not find cell with id: \(PhotoInfoTableViewCell.cellId) at indexPath: \(indexPath)")
         }
         
+        cell.photoImageView.image = nil
+        cell.titleLabel.text = nil
         let photo = photos[indexPath.row]
         cell.update(with: photo)
         
@@ -63,11 +65,35 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     
+    
 }
 
 // MARK: - UISearchBarDelegate
 
 extension MainViewController: UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let text = searchText.replacingOccurrences(of: " ", with: "+").lowercased()
+        
+        networkManager.loadPhotoInfo(text: text) { [weak self] (result, error) in
+            if !text.isEmpty {
+                guard
+                    let self = self,
+                    let result = result?.photos?.photo
+                else { print(error as Any)
+                    return }
+                
+                self.photos = result
+                self.tableView.reloadData()
+            } else {
+                self?.photos = []
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
 

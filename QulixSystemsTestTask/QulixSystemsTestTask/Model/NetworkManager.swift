@@ -14,7 +14,7 @@ class NetworkManager {
     
     func loadPhotoInfo(text: String, completionHandler: @escaping ((ResultInfo?, Error?) -> Void)) -> Void {
         
-        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=39293cea7646ac5004421a4acadfa1fa&text=\(text)")
+        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=0f909ec9c40b93c7927167dea3252aef&text=\(text)&format=json&nojsoncallback=1")
         else { return }
         
         let session = URLSession(configuration: .default)
@@ -23,6 +23,7 @@ class NetworkManager {
             func fireCompletion(_ resultInfo: ResultInfo?, _ error: Error?) {
                 DispatchQueue.main.async {
                     completionHandler(resultInfo, error)
+                    print(error as Any)
                 }
             }
             
@@ -42,31 +43,7 @@ class NetworkManager {
             }
         }
         self.dataTask?.cancel()
-        self.dataTask? = newDataTask
+        self.dataTask = newDataTask
         newDataTask.resume()
-    }
-    
-    func loadPhoto(with imageURL: String) -> UIImage? {
-        var image: UIImage?
-        
-        guard let url = URL(string: imageURL) else {return nil}
-        
-        let session = URLSession(configuration: .default)
-        let newDataTask = session.dataTask(with: url) { (data, _, error) in
-            guard
-                let data = data,
-                error == nil
-            else {
-                print(error as Any)
-                return
-            }
-            
-            image = UIImage(data: data)
-        }
-        self.dataTask?.cancel()
-        self.dataTask? = newDataTask
-        newDataTask.resume()
-        
-        return image
     }
 }
