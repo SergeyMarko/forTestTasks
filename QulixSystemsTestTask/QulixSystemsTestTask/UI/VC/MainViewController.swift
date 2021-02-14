@@ -50,6 +50,9 @@ extension MainViewController: UITableViewDataSource {
             fatalError("Can not find cell with id: \(PhotoInfoTableViewCell.cellId) at indexPath: \(indexPath)")
         }
         
+        let photo = photos[indexPath.row]
+        cell.update(with: photo)
+        
         return cell
     }
     

@@ -18,7 +18,14 @@ class PhotoInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    // MARK: - Properties
+    
+    let networkManager = NetworkManager()
+    
     // MARK: - Public
     
-    
+    func update(with photo: Photo) {
+        titleLabel.text = photo.title
+        photoImageView.image = networkManager.loadPhoto(with: photo.imageURL ?? "")
+    }
 }

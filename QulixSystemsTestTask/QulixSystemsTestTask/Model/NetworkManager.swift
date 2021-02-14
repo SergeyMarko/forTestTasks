@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     
@@ -41,7 +42,31 @@ class NetworkManager {
             }
         }
         self.dataTask?.cancel()
-        self.dataTask = newDataTask
+        self.dataTask? = newDataTask
         newDataTask.resume()
+    }
+    
+    func loadPhoto(with imageURL: String) -> UIImage? {
+        var image: UIImage?
+        
+        guard let url = URL(string: imageURL) else {return nil}
+        
+        let session = URLSession(configuration: .default)
+        let newDataTask = session.dataTask(with: url) { (data, _, error) in
+            guard
+                let data = data,
+                error == nil
+            else {
+                print(error as Any)
+                return
+            }
+            
+            image = UIImage(data: data)
+        }
+        self.dataTask?.cancel()
+        self.dataTask? = newDataTask
+        newDataTask.resume()
+        
+        return image
     }
 }
