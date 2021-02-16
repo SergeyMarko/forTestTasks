@@ -29,11 +29,9 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         
         let nib = UINib(nibName: "PhotoInfoTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: PhotoInfoTableViewCell.cellId)
-        
+        tableView.register(nib, forCellReuseIdentifier: PhotoInfoTableViewCell.cellId)
+        tableView.separatorColor = .clear
     }
-
-
 }
 
 // MARK: - UITableViewDataSource
@@ -50,10 +48,8 @@ extension MainViewController: UITableViewDataSource {
             fatalError("Can not find cell with id: \(PhotoInfoTableViewCell.cellId) at indexPath: \(indexPath)")
         }
         
-        cell.photoImageView.image = nil
-        cell.titleLabel.text = nil
         let photo = photos[indexPath.row]
-        cell.update(with: photo)
+        cell.update(with: photo, cellTag: indexPath.row)
         
         return cell
     }
@@ -65,7 +61,9 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     
-    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -73,21 +71,27 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         let text = searchText.replacingOccurrences(of: " ", with: "+").lowercased()
         
-        networkManager.loadPhotoInfo(text: text) { [weak self] (result, error) in
-            if !text.isEmpty {
-                guard
-                    let self = self,
-                    let result = result?.photos?.photo
-                else { print(error as Any)
-                    return }
-                
-                self.photos = result
-                self.tableView.reloadData()
-            } else {
-                self?.photos = []
-                self?.tableView.reloadData()
+        func reloadData(_ data: [Photo]?) {
+            photos = data ?? []
+            tableView.reloadData()
+        }
+        
+        guard !text.isEmpty else {
+            reloadData(nil)
+            return
+        }
+        
+        networkManager.loadPhotoInfo(text: text) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let result):
+                reloadData(result.photos?.photo)
+            case .failure(let error):
+                self.showErrorAlert(message: error.localizedDescription)
             }
         }
     }
@@ -96,4 +100,3 @@ extension MainViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 }
-

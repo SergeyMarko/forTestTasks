@@ -27,3 +27,10 @@ struct Photo: Decodable {
         case id, server, secret, title
     }
 }
+
+extension Photo {
+    
+    var imageURL: String? {
+        "https://live.staticflickr.com/\(server ?? "")/\(id ?? "")_\(secret ?? "")_w.jpg"
+    }
+}

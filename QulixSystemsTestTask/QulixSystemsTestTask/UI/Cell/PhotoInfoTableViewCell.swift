@@ -21,16 +21,18 @@ class PhotoInfoTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     var dataTask: URLSessionDataTask?
+    var cellTag = 0
     
     // MARK: - Public
     
-    func update(with photo: Photo) {
+    func update(with photo: Photo, cellTag: Int) {
+        self.cellTag = cellTag
         
         func loadPhoto() {
-
-            let imageURL = "https://live.staticflickr.com/\(photo.server ?? "")/\(photo.id ?? "")_\(photo.secret ?? "")_w.jpg"
+            self.dataTask?.cancel()
 
             guard
+                let imageURL = photo.imageURL,
                 let url = URL(string: imageURL)
             else { return }
 
@@ -39,17 +41,19 @@ class PhotoInfoTableViewCell: UITableViewCell {
                 guard
                     let self = self,
                     let data = data,
-                    error == nil
+                    error == nil,
+                    cellTag == self.cellTag
                 else { return }
 
                 var image: UIImage?
-                image = UIImage(data: data)
+                image = UIImage(data: data) ?? UIImage(named: "no-photo")
 
                 DispatchQueue.main.async {
-                    self.photoImageView.image = image
+                    if self.cellTag == cellTag {
+                        self.photoImageView.image = image
+                    }
                 }
             }
-            self.dataTask?.cancel()
             self.dataTask? = newDataTask
             newDataTask.resume()
         }
@@ -60,8 +64,9 @@ class PhotoInfoTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        isHidden = false
-        isSelected = false
-        isHighlighted = false
+        dataTask?.cancel()
+        dataTask = nil
+        photoImageView.image = nil
+        textLabel?.text = nil
     }
 }

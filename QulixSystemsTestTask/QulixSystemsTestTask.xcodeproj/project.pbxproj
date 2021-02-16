@@ -19,6 +19,7 @@
 		63AC4BEA25D878B700FBCA3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4BE925D878B700FBCA3D /* NetworkManager.swift */; };
 		63AC4BF225D88CFB00FBCA3D /* PhotoInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4BF025D88CFB00FBCA3D /* PhotoInfoTableViewCell.swift */; };
 		63AC4BF325D88CFB00FBCA3D /* PhotoInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63AC4BF125D88CFB00FBCA3D /* PhotoInfoTableViewCell.xib */; };
+		63AC4C3D25DB1FD500FBCA3D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C3C25DB1FD500FBCA3D /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		63AC4BE925D878B700FBCA3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		63AC4BF025D88CFB00FBCA3D /* PhotoInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoTableViewCell.swift; sourceTree = "<group>"; };
 		63AC4BF125D88CFB00FBCA3D /* PhotoInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoTableViewCell.xib; sourceTree = "<group>"; };
+		63AC4C3C25DB1FD500FBCA3D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				63AC4BF725D88D0900FBCA3D /* VC */,
 				63AC4BF825D88D1900FBCA3D /* Cell */,
+				63AC4C3C25DB1FD500FBCA3D /* UIViewController+Alert.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				63AC4BEA25D878B700FBCA3D /* NetworkManager.swift in Sources */,
 				63AC4BE225D858F100FBCA3D /* ResultInfo.swift in Sources */,
 				63AC4B9425D7E30000FBCA3D /* SceneDelegate.swift in Sources */,
+				63AC4C3D25DB1FD500FBCA3D /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
