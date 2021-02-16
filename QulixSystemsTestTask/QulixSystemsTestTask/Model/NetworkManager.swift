@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+enum DataError: Error {
+    case loading(message: String)
+}
+
 class NetworkManager {
     
     var dataTask: URLSessionDataTask?
@@ -26,11 +30,18 @@ class NetworkManager {
                 }
             }
             
-            guard
-                error == nil,
-                let data = data
-            else {
-                fireCompletion(.failure(error!))
+            
+            if let error = error as NSError?, error.code == NSURLErrorCancelled {
+                // the error is ignored here, as it is due to the request being canceled before the closure is processed
+                return
+            } else if let error = error {
+                fireCompletion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                let dataLoadingError = DataError.loading(message: "An error occurred while downloading data from the server, no data received.")
+                fireCompletion(.failure(dataLoadingError))
                 return
             }
             
