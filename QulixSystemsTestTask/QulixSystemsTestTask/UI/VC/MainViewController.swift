@@ -97,7 +97,7 @@ extension MainViewController: UISearchBarDelegate {
             
             switch result {
             case .success(let result):
-                reloadData(result.photos?.photo)
+                reloadData(result.collection?.photos)
             case .failure(let error):
                 self.showErrorAlert(message: error.localizedDescription)
             }

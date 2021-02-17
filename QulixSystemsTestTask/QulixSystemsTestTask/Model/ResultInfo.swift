@@ -9,12 +9,19 @@ import Foundation
 
 struct ResultInfo: Decodable {
     
-    var photos: Photos?
-    var stat: String?
+    var collection: Photos?
+    
+    enum CodingKeys: String, CodingKey {
+        case collection = "photos"
+    }
 }
 
 struct Photos: Decodable {
-    var photo: [Photo]?
+    var photos: [Photo]?
+    
+    enum CodingKeys: String, CodingKey {
+        case photos = "photo"
+    }
 }
 
 struct Photo: Decodable {

@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     
     var photo: Photo!
     
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
