@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 enum DataError: Error {
-    case loading(message: String)
+    case loading(message: String = "An error occurred while downloading data from the server, no data received")
 }
 
 class NetworkManager {
     
     var dataTask: URLSessionDataTask?
     
-    func loadPhotoInfo(text: String, completionHandler: @escaping ((Result<ResultInfo, Error>) -> Void)) -> Void {
-        // 22f1636b6dd971cc0bc46b33b09b7960 &format=json&nojsoncallback=1
+    func loadPhotos(with text: String, completionHandler: @escaping ((Result<ResultInfo, Error>) -> Void)) -> Void {
+        
         guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=22f1636b6dd971cc0bc46b33b09b7960&text=\(text)&format=json&nojsoncallback=1")
         else { return }
         
@@ -40,7 +40,7 @@ class NetworkManager {
             }
             
             guard let data = data else {
-                let dataLoadingError = DataError.loading(message: "An error occurred while downloading data from the server, no data received.")
+                let dataLoadingError = DataError.loading()
                 fireCompletion(.failure(dataLoadingError))
                 return
             }
@@ -55,5 +55,44 @@ class NetworkManager {
         self.dataTask?.cancel()
         self.dataTask = newDataTask
         newDataTask.resume()
+    }
+    
+    func loadPhotoInfo(with photo: Photo, completionHandler: @escaping ((Result<PhotoInfo, Error>) -> Void)) -> Void {
+        
+        guard
+            let id = photo.id,
+            let secret = photo.secret,
+            let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=22f1636b6dd971cc0bc46b33b09b7960&photo_id=\(id)&secret=\(secret)&format=json&nojsoncallback=1")
+        else { return }
+        
+        let session = URLSession(configuration: .default)
+        let dataTask = session.dataTask(with: url) { (data, _, error) in
+            
+            func fireCompletion(_ resultInfo: Result<PhotoInfo, Error>) {
+                DispatchQueue.main.async {
+                    completionHandler(resultInfo)
+                }
+            }
+            
+            guard error == nil else {
+                if let error = error {
+                    fireCompletion(.failure(error))
+                }
+                return
+            }
+            guard let data = data else {
+                let dataLoadingError = DataError.loading()
+                fireCompletion(.failure(dataLoadingError))
+                return
+            }
+            
+            do {
+                let photoInfo = try JSONDecoder().decode(PhotoInfo.self, from: data)
+                fireCompletion(.success(photoInfo))
+            } catch let parsingError {
+                fireCompletion(.failure(parsingError))
+            }
+        }
+        dataTask.resume()
     }
 }

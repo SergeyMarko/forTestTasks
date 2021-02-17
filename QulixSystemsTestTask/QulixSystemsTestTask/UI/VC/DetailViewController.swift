@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     // MARK: - Propertis
     
     var photo: Photo!
-    
+    var info: PhotoInfo!
     
     // MARK: - Lifecycle
 

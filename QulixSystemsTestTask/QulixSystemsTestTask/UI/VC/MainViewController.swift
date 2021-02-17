@@ -69,7 +69,10 @@ extension MainViewController: UITableViewDelegate {
         else { return }
         
         let photo = photos[indexPath.row]
-        detailVC.photo = photo
+        
+        
+        
+        
         
         show(detailVC, sender: nil)
     }
@@ -92,7 +95,7 @@ extension MainViewController: UISearchBarDelegate {
             tableView.reloadData()
         }
         
-        networkManager.loadPhotoInfo(text: text) { [weak self] result in
+        networkManager.loadPhotos(with: text) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
