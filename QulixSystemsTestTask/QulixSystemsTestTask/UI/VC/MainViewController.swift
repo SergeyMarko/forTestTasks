@@ -70,9 +70,17 @@ extension MainViewController: UITableViewDelegate {
         
         let photo = photos[indexPath.row]
         
-        
-        
-        
+        networkManager.loadPhotoInfo(with: photo) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let result):
+                detailVC.info = result
+            case .failure(let error):
+                self.showErrorAlert(message: error.localizedDescription)
+            }
+        }
+        detailVC.photo = photo
         
         show(detailVC, sender: nil)
     }
