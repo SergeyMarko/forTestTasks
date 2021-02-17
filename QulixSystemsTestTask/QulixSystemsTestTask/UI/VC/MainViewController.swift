@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Flickr API"
+        
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,13 +55,24 @@ extension MainViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 // MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard
+            let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        else { return }
+        
+        let photo = photos[indexPath.row]
+        detailVC.photo = photo
+        
+        show(detailVC, sender: nil)
+    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         view.endEditing(true)
