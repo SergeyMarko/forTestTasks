@@ -79,11 +79,6 @@ extension MainViewController: UISearchBarDelegate {
             tableView.reloadData()
         }
         
-        guard !text.isEmpty else {
-            reloadData(nil)
-            return
-        }
-        
         networkManager.loadPhotoInfo(text: text) { [weak self] result in
             guard let self = self else { return }
             
