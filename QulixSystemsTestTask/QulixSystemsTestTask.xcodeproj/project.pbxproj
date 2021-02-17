@@ -21,6 +21,7 @@
 		63AC4BF325D88CFB00FBCA3D /* PhotoInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63AC4BF125D88CFB00FBCA3D /* PhotoInfoTableViewCell.xib */; };
 		63AC4C3D25DB1FD500FBCA3D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C3C25DB1FD500FBCA3D /* UIViewController+Alert.swift */; };
 		63AC4C4625DD9B2900FBCA3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C4525DD9B2900FBCA3D /* DetailViewController.swift */; };
+		63AC4C4C25DDB51E00FBCA3D /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C4B25DDB51E00FBCA3D /* PhotoInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		63AC4BF125D88CFB00FBCA3D /* PhotoInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoTableViewCell.xib; sourceTree = "<group>"; };
 		63AC4C3C25DB1FD500FBCA3D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		63AC4C4525DD9B2900FBCA3D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		63AC4C4B25DDB51E00FBCA3D /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				63AC4BE125D858F100FBCA3D /* ResultInfo.swift */,
+				63AC4C4B25DDB51E00FBCA3D /* PhotoInfo.swift */,
 				63AC4BE925D878B700FBCA3D /* NetworkManager.swift */,
 			);
 			path = Model;
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63AC4C4C25DDB51E00FBCA3D /* PhotoInfo.swift in Sources */,
 				63AC4B9625D7E30000FBCA3D /* MainViewController.swift in Sources */,
 				63AC4B9225D7E30000FBCA3D /* AppDelegate.swift in Sources */,
 				63AC4BF225D88CFB00FBCA3D /* PhotoInfoTableViewCell.swift in Sources */,
