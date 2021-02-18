@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Flickr API"
+        title = L10n("title.mainVC")
         
         searchBar.delegate = self
         tableView.delegate = self

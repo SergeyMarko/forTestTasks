@@ -9,10 +9,10 @@ import UIKit
 
 extension UIViewController {
     
-    func showErrorAlert(_ title: String = "Error", message: String) {
+    func showErrorAlert(_ title: String = L10n("alert.title"), message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: L10n("alert.cancel"), style: .cancel, handler: nil)
         
         alert.addAction(cancelAction)
         

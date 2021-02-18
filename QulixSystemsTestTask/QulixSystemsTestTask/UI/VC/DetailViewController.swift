@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = L10n("title.DetailsVC")
+        title = L10n("title.detailsVC")
         loadPhoto()
         loadData()
     }
@@ -43,11 +43,11 @@ class DetailViewController: UIViewController {
     // MARK: - Private
     
     private func updateUI() {
-        ownerLabel.text = "owner:"
-        locationLabel.text = "location:"
-        dateLabel.text = "publication"
-        favoriteLabel.text = "favorite"
-        viewsLabel.text = "views"
+        ownerLabel.text = L10n("label.owner")
+        locationLabel.text = L10n("label.location")
+        dateLabel.text = L10n("label.publication")
+        favoriteLabel.text = L10n("label.favorite")
+        viewsLabel.text = L10n("label.views")
         
         namePhotoLabel.text = photo.title
         infoFullNameLabel.text = photoInfo?.info?.owner?.fullName
