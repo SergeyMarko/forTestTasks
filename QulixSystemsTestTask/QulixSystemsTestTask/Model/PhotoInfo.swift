@@ -19,7 +19,7 @@ struct Info: Decodable {
     var isFavorite: Int?
     var owner: Owner?
     var publicationDate: Dates?
-    var views: Int?
+    var views: String?
     
     enum CodingKeys: String, CodingKey {
         case isFavorite = "isfavorite"
@@ -33,7 +33,7 @@ struct Owner: Decodable {
     var location: String?
     
     enum CodingKeys: String, CodingKey {
-        case fullName = "realname"
+        case fullName = "username"
         case location
     }
 }

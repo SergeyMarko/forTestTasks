@@ -27,13 +27,46 @@ class DetailViewController: UIViewController {
     // MARK: - Propertis
     
     var photo: Photo!
-    var info: PhotoInfo!
+    var photoInfo: PhotoInfo?
+    let networkManager = NetworkManager()
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        title = "Detail Photo"
+        loadData()
+    }
+    
+    // MARK: - Private
+    
+    private func updateUI() {
+        ownerLabel.text = "owner"
+        locationLabel.text = "location"
+        dateLabel.text = "publication"
+        favoriteLabel.text = "favorite"
+        viewsLabel.text = "views"
+        
+        namePhotoLabel.text = photo.title
+        infoFullNameLabel.text = photoInfo?.info?.owner?.fullName
+        infoLoactionLabel.text = photoInfo?.info?.owner?.location
+        infoDateLabel.text = photoInfo?.info?.publicationDate?.taken
+        infoIsFavoriteLabel.text = "\(photoInfo?.info?.isFavorite ?? 0)"
+        infoViewsLabel.text = photoInfo?.info?.views
+    }
+    
+    private func loadData() {
+        networkManager.loadPhotoInfo(with: photo) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let result):
+                self.photoInfo = result
+                self.updateUI()
+            case .failure(let error):
+                self.showErrorAlert(message: error.localizedDescription)
+            }
+        }
     }
 }
