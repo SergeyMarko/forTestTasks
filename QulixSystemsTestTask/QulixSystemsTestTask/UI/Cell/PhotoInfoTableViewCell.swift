@@ -32,7 +32,7 @@ class PhotoInfoTableViewCell: UITableViewCell {
             self.dataTask?.cancel()
 
             guard
-                let imageURL = photo.imageURL,
+                let imageURL = photo.imageURL75,
                 let url = URL(string: imageURL)
             else { return }
 

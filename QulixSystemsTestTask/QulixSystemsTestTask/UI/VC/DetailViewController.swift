@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Detail Photo"
+        loadPhoto()
         loadData()
     }
     
@@ -67,6 +68,13 @@ class DetailViewController: UIViewController {
             case .failure(let error):
                 self.showErrorAlert(message: error.localizedDescription)
             }
+        }
+    }
+    
+    private func loadPhoto() {
+        
+        networkManager.loadPhoto(with: photo.imageURL1024) { [weak self] image in
+            self?.photoImageView.image = image
         }
     }
 }

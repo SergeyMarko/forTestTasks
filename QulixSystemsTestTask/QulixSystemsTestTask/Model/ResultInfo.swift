@@ -37,13 +37,23 @@ struct Photo: Decodable {
 
 extension Photo {
     
-    var imageURL: String? {
+    var imageURL75: String? {
         guard
             let server = server,
             let id = id,
             let secret = secret
         else { return nil}
         
-        return "https://live.staticflickr.com/\(server)/\(id)_\(secret)_w.jpg"
+        return "https://live.staticflickr.com/\(server)/\(id)_\(secret)_s.jpg"
+    }
+    
+    var imageURL1024: String? {
+        guard
+            let server = server,
+            let id = id,
+            let secret = secret
+        else { return nil}
+        
+        return "https://live.staticflickr.com/\(server)/\(id)_\(secret)_b.jpg"
     }
 }

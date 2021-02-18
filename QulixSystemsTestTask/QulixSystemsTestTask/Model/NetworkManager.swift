@@ -12,6 +12,8 @@ enum DataError: Error {
     case loading(message: String = "An error occurred while downloading data from the server, no data received")
 }
 
+// MARK: - NetworkManager
+
 class NetworkManager {
     
     var dataTask: URLSessionDataTask?
@@ -91,6 +93,29 @@ class NetworkManager {
                 fireCompletion(.success(photoInfo))
             } catch let parsingError {
                 fireCompletion(.failure(parsingError))
+            }
+        }
+        dataTask.resume()
+    }
+    
+    func loadPhoto(with imageURL: String?, completionHandler: @escaping (UIImage?) -> Void) -> Void {
+        guard
+            let imageURL = imageURL,
+            let url = URL(string: imageURL)
+        else { return }
+
+        let session = URLSession(configuration: .default)
+        let dataTask = session.dataTask(with: url) { (data, _, error) in
+            guard
+                let data = data,
+                error == nil
+            else { return }
+
+            var image: UIImage?
+            image = UIImage(data: data) ?? UIImage(named: "no-photo")
+
+            DispatchQueue.main.async {
+                completionHandler(image)
             }
         }
         dataTask.resume()
