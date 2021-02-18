@@ -11,8 +11,8 @@
 "label.owner" = "owner:";
 "label.location" = "location:";
 "label.publication" = "publication";
-"label.favorite" = "favorite";
 "label.views" = "views";
+"label.description" = "description:";
 "alert.title" = "Error";
-"alert.cancel" = "Cancel"
+"alert.cancel" = "Cancel";
 

@@ -16,15 +16,14 @@ struct PhotoInfo: Decodable {
 }
 
 struct Info: Decodable {
-    var isFavorite: Int?
     var owner: Owner?
     var publicationDate: Dates?
     var views: String?
+    var description: Description?
     
     enum CodingKeys: String, CodingKey {
-        case isFavorite = "isfavorite"
         case publicationDate = "dates"
-        case owner, views
+        case owner, views, description
     }
 }
 
@@ -40,4 +39,12 @@ struct Owner: Decodable {
 
 struct Dates: Decodable {
     var taken: String?
+}
+
+struct Description: Decodable {
+    var content: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case content = "_content"
+    }
 }

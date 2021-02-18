@@ -19,10 +19,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var infoLoactionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var infoDateLabel: UILabel!
-    @IBOutlet weak var favoriteLabel: UILabel!
-    @IBOutlet weak var infoIsFavoriteLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
     @IBOutlet weak var infoViewsLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var infoDescriptionLabel: UILabel!
     
     // MARK: - Propertis
     
@@ -46,15 +46,15 @@ class DetailViewController: UIViewController {
         ownerLabel.text = L10n("label.owner")
         locationLabel.text = L10n("label.location")
         dateLabel.text = L10n("label.publication")
-        favoriteLabel.text = L10n("label.favorite")
         viewsLabel.text = L10n("label.views")
+        descriptionLabel.text = L10n("label.description")
         
         namePhotoLabel.text = photo.title
         infoFullNameLabel.text = photoInfo?.info?.owner?.fullName
         infoLoactionLabel.text = photoInfo?.info?.owner?.location
         infoDateLabel.text = convertDatetime(with: photoInfo?.info?.publicationDate?.taken)
-        infoIsFavoriteLabel.text = "\(photoInfo?.info?.isFavorite ?? 0)"
         infoViewsLabel.text = photoInfo?.info?.views
+        infoDescriptionLabel.text = photoInfo?.info?.description?.content
     }
     
     private func loadData() {
