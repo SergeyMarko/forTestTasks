@@ -43,8 +43,8 @@ class DetailViewController: UIViewController {
     // MARK: - Private
     
     private func updateUI() {
-        ownerLabel.text = "owner"
-        locationLabel.text = "location"
+        ownerLabel.text = "owner:"
+        locationLabel.text = "location:"
         dateLabel.text = "publication"
         favoriteLabel.text = "favorite"
         viewsLabel.text = "views"
@@ -52,7 +52,7 @@ class DetailViewController: UIViewController {
         namePhotoLabel.text = photo.title
         infoFullNameLabel.text = photoInfo?.info?.owner?.fullName
         infoLoactionLabel.text = photoInfo?.info?.owner?.location
-        infoDateLabel.text = photoInfo?.info?.publicationDate?.taken
+        infoDateLabel.text = convertDatetime(with: photoInfo?.info?.publicationDate?.taken)
         infoIsFavoriteLabel.text = "\(photoInfo?.info?.isFavorite ?? 0)"
         infoViewsLabel.text = photoInfo?.info?.views
     }
@@ -76,5 +76,18 @@ class DetailViewController: UIViewController {
         networkManager.loadPhoto(with: photo.imageURL1024) { [weak self] image in
             self?.photoImageView.image = image
         }
+    }
+    
+    private func convertDatetime(with date: String?) -> String? {
+        guard let date = date else { return nil }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss"
+        
+        let convertfromStrToDate = dateFormatter.date(from: date)
+    
+        dateFormatter.dateStyle = .medium
+        return dateFormatter.string(from: convertfromStrToDate ?? Date())
+        
     }
 }
