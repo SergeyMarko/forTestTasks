@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Detail Photo"
+        title = L10n("title.DetailsVC")
         loadPhoto()
         loadData()
     }
