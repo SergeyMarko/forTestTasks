@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		63AC4B9225D7E30000FBCA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4B9125D7E30000FBCA3D /* AppDelegate.swift */; };
-		63AC4B9425D7E30000FBCA3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4B9325D7E30000FBCA3D /* SceneDelegate.swift */; };
 		63AC4B9625D7E30000FBCA3D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4B9525D7E30000FBCA3D /* MainViewController.swift */; };
 		63AC4B9925D7E30000FBCA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AC4B9725D7E30000FBCA3D /* Main.storyboard */; };
 		63AC4B9B25D7E30200FBCA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63AC4B9A25D7E30200FBCA3D /* Assets.xcassets */; };
@@ -46,7 +45,6 @@
 /* Begin PBXFileReference section */
 		63AC4B8E25D7E30000FBCA3D /* QulixSystemsTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QulixSystemsTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AC4B9125D7E30000FBCA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63AC4B9325D7E30000FBCA3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		63AC4B9525D7E30000FBCA3D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63AC4B9825D7E30000FBCA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63AC4B9A25D7E30200FBCA3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				63AC4BD925D7EAAF00FBCA3D /* UI */,
 				63AC4C5625DEA8C300FBCA3D /* Utils */,
 				63AC4B9125D7E30000FBCA3D /* AppDelegate.swift */,
-				63AC4B9325D7E30000FBCA3D /* SceneDelegate.swift */,
 				63AC4B9725D7E30000FBCA3D /* Main.storyboard */,
 				63AC4B9A25D7E30200FBCA3D /* Assets.xcassets */,
 				63AC4B9C25D7E30200FBCA3D /* LaunchScreen.storyboard */,
@@ -334,7 +331,6 @@
 				63AC4BEA25D878B700FBCA3D /* NetworkManager.swift in Sources */,
 				63AC4C5825DEA8F300FBCA3D /* Utils.swift in Sources */,
 				63AC4BE225D858F100FBCA3D /* ResultInfo.swift in Sources */,
-				63AC4B9425D7E30000FBCA3D /* SceneDelegate.swift in Sources */,
 				63AC4C3D25DB1FD500FBCA3D /* UIViewController+Alert.swift in Sources */,
 				63AC4C4625DD9B2900FBCA3D /* DetailViewController.swift in Sources */,
 			);
@@ -442,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -497,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -515,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8X5P82BMG;
 				INFOPLIST_FILE = QulixSystemsTestTask/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T8X5P82BMG;
 				INFOPLIST_FILE = QulixSystemsTestTask/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

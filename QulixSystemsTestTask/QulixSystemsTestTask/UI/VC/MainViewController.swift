@@ -24,7 +24,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.prefersLargeTitles = true
         title = L10n("title.mainVC")
         
         searchController.obscuresBackgroundDuringPresentation = false
