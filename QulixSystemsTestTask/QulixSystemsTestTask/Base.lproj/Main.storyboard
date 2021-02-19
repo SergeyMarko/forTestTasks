@@ -16,30 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="0aU-RU-wxv">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-e1-zoy">
-                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0aU-RU-wxv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C9L-oU-Dci"/>
-                            <constraint firstItem="mUC-e1-zoy" firstAttribute="top" secondItem="0aU-RU-wxv" secondAttribute="bottom" id="O64-Lw-zvV"/>
                             <constraint firstItem="mUC-e1-zoy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="TGH-xl-IIR"/>
                             <constraint firstItem="mUC-e1-zoy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vrg-kC-RZe"/>
-                            <constraint firstItem="0aU-RU-wxv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kYJ-TR-FQJ"/>
+                            <constraint firstItem="mUC-e1-zoy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bBn-uR-CQV"/>
                             <constraint firstItem="mUC-e1-zoy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qz3-Ja-Ndq"/>
-                            <constraint firstItem="0aU-RU-wxv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yFK-9x-2V2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I69-OO-4OK"/>
                     <connections>
-                        <outlet property="searchBar" destination="0aU-RU-wxv" id="KJK-KR-yvv"/>
                         <outlet property="tableView" destination="mUC-e1-zoy" id="5UH-Oc-mlL"/>
                     </connections>
                 </viewController>

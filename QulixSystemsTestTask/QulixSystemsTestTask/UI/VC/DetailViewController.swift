@@ -27,8 +27,8 @@ class DetailViewController: UIViewController {
     // MARK: - Propertis
     
     var photo: Photo!
-    var photoInfo: PhotoInfo?
-    let networkManager = NetworkManager()
+    private var photoInfo: PhotoInfo?
+    private let networkManager = NetworkManager()
     
     // MARK: - Lifecycle
 

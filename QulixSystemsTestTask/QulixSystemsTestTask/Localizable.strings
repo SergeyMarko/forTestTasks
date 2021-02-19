@@ -8,6 +8,7 @@
 
 "title.mainVC" = "Flickr API";
 "title.detailsVC" = "Photo Details";
+"searchBar.placeolder" = "Search";
 "label.owner" = "owner:";
 "label.location" = "location:";
 "label.publication" = "publication";

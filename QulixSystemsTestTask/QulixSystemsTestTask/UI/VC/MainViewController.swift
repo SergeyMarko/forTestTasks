@@ -11,28 +11,43 @@ class MainViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
     
-    let networkManager = NetworkManager()
-    var photos = [Photo]()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let networkManager = NetworkManager()
+    private var photos = [Photo]()
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = L10n("title.mainVC")
         
-        searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = L10n("searchBar.placeolder")
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         let nib = UINib(nibName: "PhotoInfoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: PhotoInfoTableViewCell.cellId)
         tableView.separatorColor = .clear
+    }
+    
+    // MARK: - Private
+    
+    private func reloadData(_ data: [Photo]?) {
+        photos = data ?? []
+        tableView.reloadData()
     }
 }
 
@@ -81,23 +96,18 @@ extension MainViewController: UITableViewDelegate {
 
 // MARK: - UISearchBarDelegate
 
-extension MainViewController: UISearchBarDelegate {
+extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         let text = searchText.replacingOccurrences(of: " ", with: "+").lowercased()
-        
-        func reloadData(_ data: [Photo]?) {
-            photos = data ?? []
-            tableView.reloadData()
-        }
         
         networkManager.loadPhotos(with: text) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let result):
-                reloadData(result.collection?.photos)
+                self.reloadData(result.collection?.photos)
             case .failure(let error):
                 self.showErrorAlert(message: error.localizedDescription)
             }
@@ -106,5 +116,9 @@ extension MainViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        reloadData(nil)
     }
 }

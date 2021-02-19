@@ -20,8 +20,8 @@ class PhotoInfoTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    var dataTask: URLSessionDataTask?
-    var cellTag = 0
+    private var dataTask: URLSessionDataTask?
+    private var cellTag = 0
     
     // MARK: - Public
     
