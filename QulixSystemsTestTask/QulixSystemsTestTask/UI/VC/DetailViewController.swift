@@ -40,6 +40,12 @@ class DetailViewController: UIViewController {
         loadData()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        photoImageView.roundCorners(with: 20)
+    }
+    
     // MARK: - Private
     
     private func updateUI() {

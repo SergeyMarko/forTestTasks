@@ -57,6 +57,7 @@ class PhotoInfoTableViewCell: UITableViewCell {
             self.dataTask? = newDataTask
             newDataTask.resume()
         }
+        photoImageView.roundCorners(with: 7)
         loadPhoto()
         titleLabel.text = photo.title
     }

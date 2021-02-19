@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c7N-hO-B8l">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -53,8 +54,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V1u-ch-QJb">
-                                <rect key="frame" x="0.0" y="69.5" width="375" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V1u-ch-QJb">
+                                <rect key="frame" x="20" y="69.5" width="335" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Zjm-OJ-XAw"/>
                                 </constraints>
@@ -157,7 +158,7 @@
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="blJ-w8-Xv7" firstAttribute="leading" secondItem="FqH-d7-g2B" secondAttribute="leading" constant="20" id="1P5-Ik-0sp"/>
-                            <constraint firstItem="V1u-ch-QJb" firstAttribute="trailing" secondItem="FqH-d7-g2B" secondAttribute="trailing" id="7JU-Y1-qdY"/>
+                            <constraint firstItem="V1u-ch-QJb" firstAttribute="trailing" secondItem="FqH-d7-g2B" secondAttribute="trailing" constant="-20" id="7JU-Y1-qdY"/>
                             <constraint firstItem="JBe-iM-YFY" firstAttribute="leading" secondItem="FqH-d7-g2B" secondAttribute="leading" constant="20" id="9XH-rc-MCr"/>
                             <constraint firstItem="FqH-d7-g2B" firstAttribute="trailing" secondItem="fnM-lg-qTe" secondAttribute="trailing" constant="20" id="Acl-Jq-WkU"/>
                             <constraint firstItem="FqH-d7-g2B" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JOt-wZ-bJr" secondAttribute="trailing" symbolic="YES" id="C2h-bH-FJo"/>
@@ -170,7 +171,7 @@
                             <constraint firstItem="FqH-d7-g2B" firstAttribute="trailing" secondItem="JBe-iM-YFY" secondAttribute="trailing" constant="20" id="dqv-N4-uUZ"/>
                             <constraint firstItem="V1u-ch-QJb" firstAttribute="top" secondItem="fnM-lg-qTe" secondAttribute="bottom" constant="29" id="kNE-Zg-BQ1"/>
                             <constraint firstItem="JBe-iM-YFY" firstAttribute="top" secondItem="V1u-ch-QJb" secondAttribute="bottom" constant="10" id="nr4-Jt-0g8"/>
-                            <constraint firstItem="V1u-ch-QJb" firstAttribute="leading" secondItem="FqH-d7-g2B" secondAttribute="leading" id="ssm-uM-o79"/>
+                            <constraint firstItem="V1u-ch-QJb" firstAttribute="leading" secondItem="FqH-d7-g2B" secondAttribute="leading" constant="20" id="ssm-uM-o79"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B4V-B5-2K4"/>

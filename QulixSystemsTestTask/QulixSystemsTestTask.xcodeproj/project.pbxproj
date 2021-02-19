@@ -23,6 +23,7 @@
 		63AC4C4C25DDB51E00FBCA3D /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C4B25DDB51E00FBCA3D /* PhotoInfo.swift */; };
 		63AC4C5225DEA73500FBCA3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63AC4C5125DEA73500FBCA3D /* Localizable.strings */; };
 		63AC4C5825DEA8F300FBCA3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C5725DEA8F300FBCA3D /* Utils.swift */; };
+		63AC4C7225DFD29200FBCA3D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AC4C7125DFD29200FBCA3D /* UIView+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		63AC4C4B25DDB51E00FBCA3D /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		63AC4C5125DEA73500FBCA3D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		63AC4C5725DEA8F300FBCA3D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		63AC4C7125DFD29200FBCA3D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				63AC4C5725DEA8F300FBCA3D /* Utils.swift */,
+				63AC4C7125DFD29200FBCA3D /* UIView+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			files = (
 				63AC4C4C25DDB51E00FBCA3D /* PhotoInfo.swift in Sources */,
 				63AC4B9625D7E30000FBCA3D /* MainViewController.swift in Sources */,
+				63AC4C7225DFD29200FBCA3D /* UIView+Utils.swift in Sources */,
 				63AC4B9225D7E30000FBCA3D /* AppDelegate.swift in Sources */,
 				63AC4BF225D88CFB00FBCA3D /* PhotoInfoTableViewCell.swift in Sources */,
 				63AC4BEA25D878B700FBCA3D /* NetworkManager.swift in Sources */,
