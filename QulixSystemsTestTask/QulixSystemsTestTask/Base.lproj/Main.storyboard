@@ -153,6 +153,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hwv-Jb-eSx">
+                                <rect key="frame" x="177.5" y="159" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FqH-d7-g2B"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -164,6 +167,7 @@
                             <constraint firstItem="FqH-d7-g2B" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JOt-wZ-bJr" secondAttribute="trailing" symbolic="YES" id="C2h-bH-FJo"/>
                             <constraint firstItem="JOt-wZ-bJr" firstAttribute="top" secondItem="JBe-iM-YFY" secondAttribute="bottom" constant="8" symbolic="YES" id="FSy-Ot-3A9"/>
                             <constraint firstItem="FqH-d7-g2B" firstAttribute="trailing" secondItem="blJ-w8-Xv7" secondAttribute="trailing" constant="20" id="Fmh-gq-ugy"/>
+                            <constraint firstItem="hwv-Jb-eSx" firstAttribute="centerX" secondItem="V1u-ch-QJb" secondAttribute="centerX" id="HUP-st-ogE"/>
                             <constraint firstItem="fnM-lg-qTe" firstAttribute="top" secondItem="FqH-d7-g2B" secondAttribute="top" constant="20" id="IhB-gL-0z3"/>
                             <constraint firstItem="blJ-w8-Xv7" firstAttribute="top" secondItem="JOt-wZ-bJr" secondAttribute="bottom" constant="8" id="Tb8-Qz-7KR"/>
                             <constraint firstItem="fnM-lg-qTe" firstAttribute="leading" secondItem="FqH-d7-g2B" secondAttribute="leading" constant="20" id="VWF-Lo-npL"/>
@@ -171,11 +175,13 @@
                             <constraint firstItem="FqH-d7-g2B" firstAttribute="trailing" secondItem="JBe-iM-YFY" secondAttribute="trailing" constant="20" id="dqv-N4-uUZ"/>
                             <constraint firstItem="V1u-ch-QJb" firstAttribute="top" secondItem="fnM-lg-qTe" secondAttribute="bottom" constant="29" id="kNE-Zg-BQ1"/>
                             <constraint firstItem="JBe-iM-YFY" firstAttribute="top" secondItem="V1u-ch-QJb" secondAttribute="bottom" constant="10" id="nr4-Jt-0g8"/>
+                            <constraint firstItem="V1u-ch-QJb" firstAttribute="centerY" secondItem="hwv-Jb-eSx" secondAttribute="centerY" constant="0.5" id="qdG-Uu-YJb"/>
                             <constraint firstItem="V1u-ch-QJb" firstAttribute="leading" secondItem="FqH-d7-g2B" secondAttribute="leading" constant="20" id="ssm-uM-o79"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B4V-B5-2K4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hwv-Jb-eSx" id="yoF-pi-O23"/>
                         <outlet property="dateLabel" destination="hvX-kh-s12" id="Anz-ut-jb1"/>
                         <outlet property="descriptionLabel" destination="JOt-wZ-bJr" id="J0l-cl-fxn"/>
                         <outlet property="infoDateLabel" destination="T3h-Ae-VVR" id="xXj-4K-ZL9"/>

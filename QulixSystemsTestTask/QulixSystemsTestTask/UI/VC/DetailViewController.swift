@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var namePhotoLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ownerLabel: UILabel!
@@ -34,6 +35,9 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
         
         title = L10n("title.detailsVC")
         loadPhoto()
@@ -80,6 +84,7 @@ class DetailViewController: UIViewController {
     private func loadPhoto() {
         
         networkManager.loadPhoto(with: photo.imageURL1024) { [weak self] image in
+            self?.activityIndicator.stopAnimating()
             self?.photoImageView.image = image
         }
     }
