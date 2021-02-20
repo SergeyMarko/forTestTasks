@@ -84,8 +84,10 @@ class DetailViewController: UIViewController {
     private func loadPhoto() {
         
         networkManager.loadPhoto(with: photo.imageURL1024) { [weak self] image in
-            self?.activityIndicator.stopAnimating()
-            self?.photoImageView.image = image
+            guard let self = self else { return }
+            
+            self.activityIndicator.stopAnimating()
+            self.photoImageView.image = image
         }
     }
     

@@ -9,18 +9,20 @@ import Foundation
 import UIKit
 
 enum DataError: Error {
-    case loading(message: String = "An error occurred while downloading data from the server, no data received")
+    case loading(message: String = L10n("error.download"))
 }
 
 // MARK: - NetworkManager
 
 class NetworkManager {
     
-    var dataTask: URLSessionDataTask?
+    private var dataTask: URLSessionDataTask?
+    private let baseURL = "https://www.flickr.com/services/rest/?method=flickr.photos"
+    private let apiKey = "22f1636b6dd971cc0bc46b33b09b7960"
     
     func loadPhotos(with text: String, completionHandler: @escaping ((Result<ResultInfo, Error>) -> Void)) -> Void {
         
-        guard let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=22f1636b6dd971cc0bc46b33b09b7960&text=\(text)&format=json&nojsoncallback=1")
+        guard let url = URL(string: "\(baseURL).search&api_key=\(apiKey)&text=\(text)&format=json&nojsoncallback=1")
         else { return }
         
         let session = URLSession(configuration: .default)
@@ -64,7 +66,7 @@ class NetworkManager {
         guard
             let id = photo.id,
             let secret = photo.secret,
-            let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=22f1636b6dd971cc0bc46b33b09b7960&photo_id=\(id)&secret=\(secret)&format=json&nojsoncallback=1")
+            let url = URL(string: "\(baseURL).getInfo&api_key=\(apiKey)&photo_id=\(id)&secret=\(secret)&format=json&nojsoncallback=1")
         else { return }
         
         let session = URLSession(configuration: .default)

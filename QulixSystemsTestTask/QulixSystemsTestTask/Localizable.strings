@@ -16,4 +16,5 @@
 "label.description" = "description:";
 "alert.title" = "Error";
 "alert.cancel" = "Cancel";
+"error.download" = "An error occurred while downloading data from the server, no data received";
 
