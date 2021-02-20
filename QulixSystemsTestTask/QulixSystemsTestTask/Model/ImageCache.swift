@@ -26,7 +26,7 @@ class ImageCache {
     struct Config {
         
         let memoryLimit: Int
-        static let defaultConfig = Config(memoryLimit: 1024 * 1024 * 100)
+        static let defaultConfig = Config(memoryLimit: 1024 * 1024 * 500)
     }
 }
 
