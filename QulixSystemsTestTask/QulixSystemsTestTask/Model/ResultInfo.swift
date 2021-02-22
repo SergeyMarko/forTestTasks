@@ -36,7 +36,7 @@ struct Photo: Decodable {
 }
 
 extension Photo {
-    
+    // photos load with a resolution of 75x75p(to display in cells )
     var imageURL75: String? {
         guard
             let server = server,
@@ -46,7 +46,7 @@ extension Photo {
         
         return "https://live.staticflickr.com/\(server)/\(id)_\(secret)_s.jpg"
     }
-    
+    // photos load with a resolution of 1024x1024p(to display in DetailsViewController)
     var imageURL1024: String? {
         guard
             let server = server,

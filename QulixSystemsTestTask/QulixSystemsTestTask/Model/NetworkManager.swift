@@ -12,21 +12,28 @@ enum DataError: Error {
     case loading(message: String = L10n("error.download"))
 }
 
+protocol URLSessionProtocol {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession: URLSessionProtocol {}
+
 // MARK: - NetworkManager
 
 class NetworkManager {
     
+    lazy var urlSession: URLSessionProtocol = URLSession.shared
     private var dataTask: URLSessionDataTask?
     private let baseURL = "https://www.flickr.com/services/rest/?method=flickr.photos"
     private let apiKey = "22f1636b6dd971cc0bc46b33b09b7960"
     
+    // - the method executes the request for each letter entered
     func loadPhotos(with text: String, completionHandler: @escaping ((Result<ResultInfo, Error>) -> Void)) -> Void {
         
         guard let url = URL(string: "\(baseURL).search&api_key=\(apiKey)&text=\(text)&format=json&nojsoncallback=1")
         else { return }
         
-        let session = URLSession(configuration: .default)
-        let newDataTask = session.dataTask(with: url) { (data, _, error) in
+        let newDataTask = urlSession.dataTask(with: url) { (data, response, error) in
             
             func fireCompletion(_ resultInfo: Result<ResultInfo, Error>) {
                 DispatchQueue.main.async {
@@ -61,6 +68,8 @@ class NetworkManager {
         newDataTask.resume()
     }
     
+    // - the method makes a request for a specific photo and returns all information about it
+    // (for example: title, location, publication date, and so on)
     func loadPhotoInfo(with photo: Photo, completionHandler: @escaping ((Result<PhotoInfo, Error>) -> Void)) -> Void {
         
         guard
@@ -100,6 +109,7 @@ class NetworkManager {
         dataTask.resume()
     }
     
+    // - the method loads the photo itself
     func loadPhoto(with imageURL: String?, completionHandler: @escaping (UIImage?) -> Void) -> Void {
         guard
             let imageURL = imageURL,

@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let networkManager = NetworkManager()
-    private var photos = [Photo]()
+    var photos = [Photo]()
     
     // MARK: Lifecycle
     
